@@ -6,12 +6,15 @@ const onInputBlur = (event) => {
   const isValidLength = currentInputLength >= inputRequiredLength;
 
   if (isValidLength) {
-    inputRef.classList.remove("invalid");
-    inputRef.classList.add("valid");
+    classToggleInputRef("valid", "invalid");
   } else {
-    inputRef.classList.remove("valid");
-    inputRef.classList.add("invalid");
+    classToggleInputRef("invalid", "valid");
   }
 };
 
 inputRef.addEventListener("blur", onInputBlur);
+
+function classToggleInputRef(classAdd, classRemove) {
+  inputRef.classList.add(classAdd);
+  inputRef.classList.remove(classRemove);
+}

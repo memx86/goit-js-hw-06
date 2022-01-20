@@ -2,7 +2,7 @@ const formRef = document.querySelector(".login-form");
 const onFormSubmit = (event) => {
   event.preventDefault();
   const { email, password } = event.currentTarget;
-  if (email.value === "" || password.value === "") {
+  if (!email.value || !password.value) {
     alert("Все поля должны быть заполнены");
   } else {
     const formData = {};
